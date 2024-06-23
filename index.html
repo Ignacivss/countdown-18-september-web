@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="PAGINA HUASA PARIENTE" property="og:title" />
+    <meta content="#VIVACHILE" property="og:description" />
+    <meta content="https://piero47.cloud/" property="og:url" />
+    <meta content="https://cdn.discordapp.com/attachments/1236839182119338086/1254540149925220492/Vw1tQnk.png?ex=6679dd0f&is=66788b8f&hm=fb6b5e40ea7d2e6dba5316e6eea3888cd93cbb7415d9bb6011223c5addeeba96&" property="og:image" />
+    <meta content="#ff0000" data-react-helmet="true" name="theme-color" />
+    <style>
+        body {
+            background-color: black; 
+            color: white; 
+            text-align: center; 
+            font-family: 'Pusab', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #h1 {
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        #days {
+            font-size: 1em; 
+            font-weight: bold;
+        }
+
+        #cuenta {
+            margin-top: 20px; 
+        }
+    </style>
+    <link href="https://fonts.cdnfonts.com/css/pusab" rel="stylesheet">
+    <title>Countdown to 18 de Septiembre</title>
+</head>
+<body>
+    <div>
+        <h1 id="h1">FALTAN <span id="days"></span> DÍAS PARA EL 18 MI GANCHO UYUUUUUY</h1>
+        <div id="cuenta"></div>
+         <img src="https://cdn.discordapp.com/attachments/1236839182119338086/1254540149925220492/Vw1tQnk.png?ex=6679dd0f&is=66788b8f&hm=fb6b5e40ea7d2e6dba5316e6eea3888cd93cbb7415d9bb6011223c5addeeba96&">
+    </div>
+    <script>
+        function getDeviceDate() {
+            return new Date();
+        }
+
+        function updateDaysCountdown() {
+            var now = getDeviceDate(); 
+            var targetDate = new Date(now.getFullYear(), 8, 18, 9, 0, 0); 
+
+            var daysLeft = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
+
+            var daysLeftElement = document.getElementById("days");
+            daysLeftElement.innerHTML = daysLeft;
+
+            var h1 = document.getElementById("h1");
+
+            if (daysLeft <= 0) {
+                h1.innerHTML = "¡YA ES EL 18 MIERDA! A DISFRUTAR GANCHO";
+            }
+        }
+
+        updateDaysCountdown();
+
+        setInterval(updateDaysCountdown, 60000);
+    </script>
+</body>
+</html>

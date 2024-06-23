@@ -42,7 +42,7 @@
     <div>
         <h1 id="h1">FALTAN <span id="days"></span> DÍAS PARA EL 18 MI GANCHO UYUUUUUY</h1>
         <div id="cuenta"></div>
-         <img src="https://cdn.discordapp.com/attachments/1236839182119338086/1254540149925220492/Vw1tQnk.png?ex=6679dd0f&is=66788b8f&hm=fb6b5e40ea7d2e6dba5316e6eea3888cd93cbb7415d9bb6011223c5addeeba96&">
+        <img src="https://cdn.discordapp.com/attachments/1236839182119338086/1254540149925220492/Vw1tQnk.png?ex=6679dd0f&is=66788b8f&hm=fb6b5e40ea7d2e6dba5316e6eea3888cd93cbb7415d9bb6011223c5addeeba96&">
     </div>
     <script>
         function getDeviceDate() {
@@ -50,15 +50,15 @@
         }
 
         function updateDaysCountdown() {
-            var now = getDeviceDate(); 
-            var targetDate = new Date(now.getFullYear(), 8, 18, 9, 0, 0); 
+            let now = getDeviceDate(); 
+            let targetDate = new Date(now.getFullYear(), 8, 18, 9, 0, 0); 
 
-            var daysLeft = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
+            let daysLeft = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
 
-            var daysLeftElement = document.getElementById("days");
+            let daysLeftElement = document.getElementById("days");
             daysLeftElement.innerHTML = daysLeft;
 
-            var h1 = document.getElementById("h1");
+            let h1 = document.getElementById("h1");
 
             if (daysLeft <= 0) {
                 h1.innerHTML = "¡YA ES EL 18 MIERDA! A DISFRUTAR GANCHO";

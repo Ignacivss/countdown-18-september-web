@@ -35,6 +35,11 @@
         #cuenta {
             margin-top: 20px; 
         }
+
+        #current-time {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
     </style>
     <link href="https://fonts.cdnfonts.com/css/pusab" rel="stylesheet">
     <title>Countdown to 18 de Septiembre</title>
@@ -44,6 +49,7 @@
         <h1 id="h1">FALTAN <span id="days"></span> DÍAS PARA EL 18 DE SEPTIEMBRE</h1>
         <div id="cuenta"></div>
         <img src="https://cdn.pixabay.com/animation/2022/08/07/20/19/20-19-50-911_512.gif">
+        <div id="current-time"></div>
     </div>
     <script>
         function getDeviceDate() {
@@ -72,9 +78,28 @@
             }
         }
 
+        // Muestra la fecha de tu paisxd
+        function updateLocalTime() {
+            fetch('https://ipinfo.io?token=a19b736a7cd05e')  
+                .then(response => response.json())
+                .then(data => {
+                    const country = data.country;
+                    const timezone = data.timezone;
+
+                    const options = { timeZone: timezone, year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+                    const localDate = new Intl.DateTimeFormat('en-US', options).format(new Date());
+
+                    const currentTimeElement = document.getElementById("current-time");
+                    currentTimeElement.innerHTML = `Fecha y hora actual en donde estas : ${country}: ${localDate}`;
+                })
+                .catch(error => console.error('Error getting location:', error));
+        }
+
         updateDaysCountdown();
+        updateLocalTime();
 
         setInterval(updateDaysCountdown, 60000);
+        setInterval(updateLocalTime, 60000); // Update the time every minute
     </script>
 </body>
 </html>

@@ -61,7 +61,7 @@
             let currentYear = now.getFullYear();
             let targetDate = new Date(currentYear, 8, 18, 9, 0, 0); 
 
-            // If the target date has already passed this year, set it to next year lol
+            // If the target date has already passed this year well update to the next year 
             if (now > targetDate) {
                 targetDate.setFullYear(currentYear + 1);
             }
@@ -102,12 +102,13 @@
                 .catch(error => console.error('Error getting location:', error));
         }
 
-        // this shit update all that
-        updateDaysCountdown();
-        updateLocalTime();
+        function updateTimers() {
+            updateDaysCountdown();
+            updateLocalTime();
+        }
 
-        setInterval(updateDaysCountdown, 1000); 
-        setInterval(updateLocalTime, 60000);
+        // Update all the shits from the web like the timers
+        setInterval(updateTimers, 1000);
     </script>
 </body>
 </html>
